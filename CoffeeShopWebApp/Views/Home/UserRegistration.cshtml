@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "UserRegistration";
+}
+
+<h2>UserRegistration</h2>
+<body>
+    <form action="/Home/AddUser" method="post">
+        <label class="control-label">First Name</label> <input type="text" name="FirstName" class="form-control" />
+        <label class="control-label">Last Name</label> <input type="text" name="LastName" class="form-control" />
+        <label class="control-label">Birthday</label> <input type="date" name="Birthday" class="form-control" />
+        <label class="control-label">Email</label> <input type="email" name="Email" class="form-control" />
+        <!--<label class="control-label">Sign me up for promotional emails</label> <input type="checkbox" name="Promo" class="form-control" />-->
+
+
+        <input type="submit" value="Sign Up!" class="btn-default" />
+    </form>
+</body>
