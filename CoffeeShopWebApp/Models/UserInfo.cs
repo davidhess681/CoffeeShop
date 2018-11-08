@@ -9,7 +9,7 @@ namespace CoffeeShopWebApp.Models
     public class UserInfo
     {
         [Required] // attributes 
-        [RegularExpression("^[a-zA-Z]{2,}$")]
+        [RegularExpression("^[A-Z]+[A-z]{1,30}$")]
         public string FirstName { set; get; }
 
         [Required]
