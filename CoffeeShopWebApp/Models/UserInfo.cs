@@ -16,8 +16,10 @@ namespace CoffeeShopWebApp.Models
         [RegularExpression("^[a-zA-Z]{2,}$")]
         public string LastName { set; get; }
 
-
+        /*[Required]
+        [RegularExpression(@"^ ([a - zA - Z0 - 9_\-\.] +)@([a - zA - Z0 - 9_\-\.] +)\.([a - zA - Z]{2, 5})$")]*/
         public string Email { get; set; }
+
         public DateTime Birthday { get; set; }
         
         public UserInfo()

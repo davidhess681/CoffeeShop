@@ -54,7 +54,9 @@ namespace CoffeeShopWebApp.Controllers
 
                 else
                 {
-                    return View("Error");
+                    ViewBag.ErrorMessage = "Something was invalid. Please fix it and try again.";
+                    
+                    return View("UserRegistration");
                 }
             }
         }
