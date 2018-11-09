@@ -49,6 +49,7 @@ namespace CoffeeShopWebApp.Controllers
                     ViewBag.Name = $"Name: {newUser.FirstName} {newUser.LastName}";
                     ViewBag.Email = $"Email: {newUser.Email}";
                     ViewBag.Birthday = $"Birthday: {newUser.Birthday}";
+                    ViewBag.PhoneNumber = $"Phone Number: {newUser.PhoneNumber}";
 
                     return View("Summary");
                 }

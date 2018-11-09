@@ -11,9 +11,13 @@ var check_match = function () {
         matching = false;
     }
 }
+
 var fnRegex = /^[A-Z]+[A-z]{1,30}$/
 var lnRegex = /^[A-Z]+[A-z]{1,30}$/
 var emRegex = /^([A-z0-9\.]{5,30})@([A-z]{5,10})\.([a-z]{2,3})$/
+var pwRegex = /^[A-z0-9]{8,30}$/
+var pnRegex = /^\d{3}-?\d{3}-?\d{4}$/
+
 var fnIsValid = false;
 var validFN = function () {
     if (fnRegex.test(document.getElementById("fn").value)) {
@@ -27,6 +31,7 @@ var validFN = function () {
         fnIsValid = false;
     }
 }
+
 var lnIsValid = false;
 var validLN = function () {
     if (lnRegex.test(document.getElementById("ln").value)) {
@@ -40,6 +45,7 @@ var validLN = function () {
         lnIsValid = false;
     }
 }
+
 var bdIsValid = false;
 var validBD = function () {
     if (document.getElementById("bd").value !== null) {
@@ -53,9 +59,26 @@ var validBD = function () {
         bdIsValid = false;
     }
 }
+
+var pnIsValid = false;
+var validPN = function () {
+    if (pnRegex.test(document.getElementById("pn").value)) {
+        document.getElementById("pnMessage").innerHTML = "Valid!";
+        document.getElementById("pnMessage").style.color = "green";
+        pnIsValid = true;
+    }
+    else {
+        document.getElementById("pnMessage").innerHTML = "Invalid!";
+        document.getElementById("pnMessage").style.color = "red";
+        pnIsValid = false;
+    }
+}
+
 var emIsValid = false;
 var validEM = function () {
-    check_match();
+    if (document.getElementById("cfem").value !== "") {
+        check_match();
+    }
     if (emRegex.test(document.getElementById("email").value)) {
         document.getElementById("emMessage").innerHTML = "Valid!";
         document.getElementById("emMessage").style.color = "green";
@@ -67,8 +90,43 @@ var validEM = function () {
         emIsValid = false;
     }
 }
+
+var pwIsValid = false;
+var validPW = function () {
+    if (document.getElementById("cfpw").value !== "") {
+        pwMatch();
+    }
+    if (pwRegex.test(document.getElementById("pw").value)) {
+        console.log("true");
+        document.getElementById("pwMessage").innerHTML = "Valid!";
+        document.getElementById("pwMessage").style.color = "green";
+        pwIsValid = true;
+    }
+    else {
+        console.log("false");
+        document.getElementById("pwMessage").innerHTML = "Invalid!";
+        document.getElementById("pwMessage").style.color = "red";
+        pwIsValid = false;
+
+    }
+}
+
+var pwMatching = false;
+var pwMatch = function () {
+    if (document.getElementById("pw").value === document.getElementById("cfpw").value) {
+        document.getElementById("cfpwMessage").innerHTML = "matching!";
+        document.getElementById("cfpwMessage").style.color = "green";
+        pwMatching = true;
+    }
+    else {
+        document.getElementById("cfpwMessage").innerHTML = "not matching!";
+        document.getElementById("cfpwMessage").style.color = "red";
+        pwMatching = false;
+    }
+}
+
 function Validate() {
-    if (fnIsValid && lnIsValid && emIsValid && matching && bdIsValid) {
+    if (fnIsValid && lnIsValid && emIsValid && matching && bdIsValid && pwIsValid && pwMatching) {
         return true;
     }
     alert("Please make sure all fields are valid")

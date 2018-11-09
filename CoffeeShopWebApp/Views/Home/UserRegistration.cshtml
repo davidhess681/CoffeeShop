@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "UserRegistration";
 }
-
+<link href="~/Content/DavidIsStylish.css" rel="stylesheet" type="text/css" />
 <h2>UserRegistration</h2>
 <body>
     <form name="signup" method="post" action="/Home/AddUser" onsubmit="return Validate()">
@@ -21,8 +21,14 @@
 
         <label class="control-label">
             Birthday:
-            <input type="date" name="Birthday" class="form-control" id="bd" oninput="validBD()" onchange="validBD()"/>
+            <input type="date" name="Birthday" class="form-control" id="bd" oninput="validBD()" onchange="validBD()" />
             <span id="bdMessage"></span>
+        </label>        <br />
+
+        <label class="control-label">
+            Phone Number:
+            <input type="text" name="PhoneNumber" class="form-control" id="pn" onkeyup="validPN()" />
+            <span id="pnMessage"></span>
         </label>        <br />
 
         <label class="control-label">
@@ -35,6 +41,18 @@
             Confirm Email:
             <input type="email" name="ConfirmEmail" class="form-control" id="cfem" onkeyup="check_match()" />
             <span id="message"></span>
+        </label>        <br />
+
+        <label class="control-label">
+            Password:
+            <input type="password" name="Password" class="form-control" id="pw" onkeyup="validPW()" />
+            <span id="pwMessage"></span>
+        </label>        <br />
+
+        <label class="control-label">
+            Confirm Password:
+            <input type="password" name="ConfirmPassword" class="form-control" id="cfpw" onkeyup="pwMatch()" />
+            <span id="cfpwMessage"></span>
         </label>        <br />
 
         <!--<label class="control-label">Sign me up for promotional emails</label> <input type="checkbox" name="Promo" class="form-control" />-->
